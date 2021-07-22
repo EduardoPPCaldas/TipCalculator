@@ -1,0 +1,23 @@
+:root{
+  --Strong-cyan: hsl(172, 67%, 45%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --darker-grayish-cyan: hsl(186, 14%, 43%);
+  --dark-gray-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --lighter-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+
+button {
+  background: var(--very-dark-cyan);
+  height: 42px;
+  width: 108px;
+  border-radius: 8px;
+  border: 1px solid var(--very-dark-cyan);
+  color: var(--white);
+  font-size: 24px;
+  font-family: "Space mono" , sans-serif;
+  margin: 8px;
+
+  
+}
