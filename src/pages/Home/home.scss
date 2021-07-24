@@ -118,9 +118,25 @@ body {
     font-size: 40px;
     color: var(--Strong-cyan);
   }
+  .tip-button{
+    background: var(--very-dark-cyan);
+    color: var(--white);
+    height: 36px;
+    width: 108px;
+
+    margin: 6px;
+    border-radius: 4px;
+    font-size: 22px;
+    font-family: "Space mono" , sans-serif;
+
+    border: 1px solid var(--lighter-grayish-cyan);
+
+    
+  }
   .pressed{
     background: var(--Strong-cyan);
     color: var(--very-dark-cyan);
   }
+  
 }
 

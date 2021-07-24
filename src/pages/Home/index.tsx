@@ -1,32 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState , MouseEvent} from 'react'
 import './home.scss'
 import PersonSvg from '../../assets/images/icon-person.svg'
 import DollarSvg from '../../assets/images/icon-dollar.svg'
-import { Button } from '../../components/Button'
 
-export function Home(){
-  const [activeButton1, setActiveButton1] = useState(false)
-  const [activeButton2, setActiveButton2] = useState(false)
-  const [activeButton3, setActiveButton3] = useState(false)
-  const [activeButton4, setActiveButton4] = useState(false)
-  const [activeButton5, setActiveButton5] = useState(false)
-
-  function handleButtonTip(){
-    setActiveButton1(false)
-    setActiveButton2(false)
-    setActiveButton3(false)
-    setActiveButton4(false)
-    setActiveButton5(false)
+export function Home() {
+  // const [checked , setChecked] = useState(false)
+  function handleTipButton(event : MouseEvent<HTMLButtonElement>, index: number){
+    event.preventDefault()
+    for(let i = 0 ; i<5 ; i++){
+      document.getElementsByClassName('tip-button').item(i)?.classList.remove('pressed')
+    }
+    document.getElementsByClassName('tip-button').item(index)?.classList.add('pressed')
   }
 
-  function handleReset(){
-    
+  function handleReset() {
+
     console.log("clicou")
   }
 
-  
 
-  return(
+
+  return (
     <main>
       <div className="table">
         <div className="money-info">
@@ -34,49 +28,29 @@ export function Home(){
             <p className="input-info">Bill</p>
             <div className="input-box" id="bill">
               <img src={DollarSvg} alt="" />
-              <input type="number" placeholder="0"/>
+              <input type="number" placeholder="0" />
             </div>
 
             <p className="input-info">Select tip %</p>
-            
-            <div>
-              <div>
-                <Button className={activeButton1 ? "pressed" : ""} id="button1" onClick={(event) => {
-                  event.preventDefault()
-                  handleButtonTip()
-                  setActiveButton1(true)
-                }}>5%</Button>
-                <Button className={activeButton2 ? "pressed" : ""} id="button2" onClick={(event) => {
-                  event.preventDefault()
-                  handleButtonTip()
-                  setActiveButton2(true)
-                }}>10%</Button>
-                <Button className={activeButton3 ? "pressed" : ""} id="button3" onClick={(event) => {
-                  event.preventDefault()
-                  handleButtonTip()
-                  setActiveButton3(true)
-                }}>15%</Button>
-              </div>
 
-              <div>
-              <Button className={activeButton4 ? "pressed" : ""} id="button4" onClick={(event) => {
-                  event.preventDefault()
-                  handleButtonTip()
-                  setActiveButton4(true)
-                }}>20%</Button>
-                <Button className={activeButton5 ? "pressed" : ""} id="button5" onClick={(event) => {
-                  event.preventDefault()
-                  handleButtonTip()
-                  setActiveButton5(true)
-                }}>25%</Button>
-              </div>
+            <div>
+                <div>
+                  <button className="tip-button" onClick={event => handleTipButton(event,0)}>5%</button>
+                  <button className="tip-button" onClick={event => handleTipButton(event,1)}>10%</button>
+                  <button className="tip-button" onClick={event => handleTipButton(event,2)}>15%</button>
+                </div>
+
+                <div>
+                  <button className="tip-button" onClick={event => handleTipButton(event,3)}>20%</button>
+                  <button className="tip-button" onClick={event => handleTipButton(event,4)}>25%</button>
+                </div>
             </div>
 
             <p className="input-info">Number of People</p>
 
             <div className="input-box" id="people" >
               <img src={PersonSvg} alt="" />
-              <input type="number" placeholder="0"/>
+              <input type="number" placeholder="0" />
             </div>
           </form>
         </div>
